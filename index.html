@@ -1,0 +1,51 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>날씨</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <main class="app">
+    <header class="top">
+      <form id="search-form" class="search" autocomplete="off">
+        <input id="search-input" type="search" placeholder="도시 이름 (예: 서울, Busan, Tokyo)" aria-label="도시 검색" />
+        <button type="submit">검색</button>
+        <button type="button" id="locate-btn" title="현재 위치">📍</button>
+      </form>
+      <ul id="suggestions" class="suggestions" hidden></ul>
+    </header>
+
+    <p id="status" class="status">도시를 검색하거나 📍를 눌러 현재 위치의 날씨를 확인하세요.</p>
+
+    <section id="current" class="card current" hidden>
+      <div class="place" id="place"></div>
+      <div class="now">
+        <span class="icon" id="now-icon"></span>
+        <span class="temp" id="now-temp"></span>
+      </div>
+      <div class="desc" id="now-desc"></div>
+      <div class="meta">
+        <div><span>체감</span><b id="now-feels"></b></div>
+        <div><span>습도</span><b id="now-humidity"></b></div>
+        <div><span>바람</span><b id="now-wind"></b></div>
+        <div><span>강수</span><b id="now-precip"></b></div>
+      </div>
+    </section>
+
+    <section id="hourly-wrap" class="card" hidden>
+      <h2>시간별 예보</h2>
+      <div id="hourly" class="hourly"></div>
+    </section>
+
+    <section id="daily-wrap" class="card" hidden>
+      <h2>7일 예보</h2>
+      <ul id="daily" class="daily"></ul>
+    </section>
+
+    <footer class="foot">데이터: <a href="https://open-meteo.com/" target="_blank" rel="noopener">Open-Meteo</a></footer>
+  </main>
+  <script src="app.js"></script>
+</body>
+</html>
